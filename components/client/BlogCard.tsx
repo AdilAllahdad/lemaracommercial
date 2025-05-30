@@ -23,11 +23,13 @@ export const BlogCard = ({ title, date, category, image, excerpt, link }: BlogCa
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >      <article className="bg-white rounded-lg overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-[0_15px_60px_rgba(0,0,0,0.3)]">
-        <div className="relative h-48">
-          <Image
+        <div className="relative h-48">          <Image
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 384px"
+            quality={80}
+            loading="lazy"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${

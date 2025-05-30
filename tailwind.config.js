@@ -6,10 +6,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {      animation: {
+    extend: {
+      colors: {
+        secondary: '#2D659C',
+      },
+      animation: {
         blob: "blob 7s infinite",
         'fade-in': 'fadeIn 0.5s ease-out',
-      },      keyframes: {
+      },
+      keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },

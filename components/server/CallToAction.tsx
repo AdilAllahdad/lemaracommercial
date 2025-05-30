@@ -5,11 +5,12 @@ const CallToAction = () => {
   return (
     <div className="relative py-20 overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <Image
+      <div className="absolute inset-0">        <Image
           src="/images/slide2.jpg"
           alt="Background"
           fill
+          sizes="100vw"
+          quality={85}
           className="object-cover scale-105 transform transition-transform duration-[2s] hover:scale-110"
           priority
         />
