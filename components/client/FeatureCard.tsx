@@ -11,12 +11,14 @@ export interface FeatureItem {
 }
 
 const FeatureCard = ({ title, description, backgroundImage, link }: FeatureItem) => (  <div className="bg-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.2)] overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_60px_rgba(0,0,0,0.3)] flex flex-col h-full">
-    <div className="relative h-48 w-full">
-      <Image
+    <div className="relative h-48 w-full">      <Image
         src={backgroundImage}
         alt={title}
         fill
-        className="object-cover"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 384px"
+        quality={85}
+        loading="lazy"
+        className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </div>
     <div className="p-6 flex flex-col flex-grow">

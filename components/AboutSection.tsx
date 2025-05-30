@@ -31,12 +31,14 @@ const AboutSection = () => {
               Our Services
             </Link>
           </div>
-          <div className="relative h-[400px]">
-            <Image
+          <div className="relative h-[400px]">            <Image
               src="/images/service1.jpg"
               alt="Commercial Real Estate"
               fill
-              className="object-cover rounded-lg"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 576px"
+              quality={85}
+              loading="lazy"
+              className="object-cover rounded-lg transition-transform duration-300 hover:scale-105"
             />
           </div>
         </div>

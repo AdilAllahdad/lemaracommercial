@@ -7,10 +7,17 @@ import { MobileMenu } from './MobileMenu';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isListingsDropdownOpen, setIsListingsDropdownOpen] = useState(false);
   
   const menuItems = [
     { label: 'Commercial Loan', href: '/commercial-loan' },
-    { label: 'Commercial Listings', href: '/commercial-listings' },
+    { 
+      label: 'Commercial Listings',
+      href: '/listings',
+      dropdownItems: [
+        { label: 'Our Listings', href: '/listings' },
+      ]
+    },
     { label: "Investor's Development Opportunity", href: '/investor-opportunities' },
   ];
 
@@ -76,13 +83,64 @@ const Header = () => {
           <div className="hidden lg:flex flex-1 justify-center ml-16">
             <div className="flex items-center space-x-8">
               {menuItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-blue-900 hover:text-blue-700 px-3 py-2 text-sm font-medium"
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label} className="relative">
+                  {item.dropdownItems ? (
+                    <div
+                      onMouseEnter={() => setIsListingsDropdownOpen(true)}
+                      onMouseLeave={() => setIsListingsDropdownOpen(false)}
+                      className="relative"
+                    >
+                      <button
+                        className="text-blue-900 hover:text-blue-700 px-3 py-2 text-sm font-medium inline-flex items-center"
+                        aria-expanded={isListingsDropdownOpen}
+                      >
+                        {item.label}
+                        <svg
+                          className={`ml-2 h-4 w-4 transform transition-transform duration-200 ${
+                            isListingsDropdownOpen ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                      {isListingsDropdownOpen && (
+                        <div 
+                          className="absolute z-50 left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                          style={{ top: 'calc(100% - 5px)' }}
+                        >
+                          {/* Add a hidden buffer area to prevent menu from closing */}
+                          <div className="h-4 -mt-4" />
+                          <div className="py-1">
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.label}
+                                href={dropdownItem.href}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-blue-900 hover:text-blue-700 px-3 py-2 text-sm font-medium"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -112,7 +170,7 @@ const Header = () => {
 
    <Link
               href="/login"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-900 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Login
             </Link>

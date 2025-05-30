@@ -24,13 +24,15 @@ const HeroSlider = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
-        >
-          <Image
+        >          <Image
             src={slide}
             alt={`Slide ${index + 1}`}
             fill
+            sizes="100vw"
+            quality={85}
             className="object-cover"
             priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
