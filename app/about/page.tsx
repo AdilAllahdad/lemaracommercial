@@ -79,7 +79,7 @@ export default function AboutPage() {
                 Created on a foundation of knowledge and integrity, Lemara Commercial focuses on providing customized, strategic brokerage solutions for our private and institutional clients.
               </p>
               <p className="text-lg text-gray-600">
-                Our structured services platform allows our clients to focus on their own business operations, knowing that Lemara Commercial's team of real estate and retail business experts is taking care of all of the strategic and operational real estate and business details.
+                Our structured services platform allows our clients to focus on their own business operations, knowing that Lemara Commercial&apos;s team of real estate and retail business experts is taking care of all of the strategic and operational real estate and business details.
               </p>
               <p className="text-lg text-gray-600">
                 The end result is custom-tailored real estate and buy-sell business solutions that fulfill your business objectives and maximize your cost-savings.
@@ -117,7 +117,7 @@ export default function AboutPage() {
                 Our knowledge and expertise in all areas of buy-sell business, multi-family apartment buildings, and commercial real estate provides our clients with a comprehensive approach to their business and real estate needs.
               </p>
               <p className="text-lg text-gray-600">
-                Lemara Commercial is composed of a diverse group of entrepreneurs with backgrounds in commercial real estate, retail business, and multi-family investment properties. Through collaboration, our team works to achieve each client's goals, regardless of the asset type.
+                Lemara Commercial is composed of a diverse group of entrepreneurs with backgrounds in commercial real estate, retail business, and multi-family investment properties. Through collaboration, our team works to achieve each client&apos;s goals, regardless of the asset type.
               </p>
               <div className="pt-4">
                 <Link
