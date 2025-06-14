@@ -13,7 +13,7 @@ const HeroSlider = () => {
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <>
