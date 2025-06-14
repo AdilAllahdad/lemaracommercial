@@ -4,15 +4,31 @@ import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-// @ts-ignore
 import Masonry from 'react-masonry-css';
 import { listings, categories } from '@/app/data/listings';
+
+interface Property {
+  title: string;
+  description: string;
+  location: string;
+  type: string;
+  price: string;
+  income: {
+    capRate: string;
+  };
+  gallery?: string[];
+  backgroundImage: string;
+  broker: {
+    name: string;
+    avatar: string;
+  };
+}
 
 export default function ListingsGrid() {
   const [mounted, setMounted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState("price");
+  const [sortBy, setSortBy] = useState<"price" | "capRate">("price");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +37,7 @@ export default function ListingsGrid() {
   }, []);
 
   const filteredAndSortedListings = useMemo(() => {
-    let result = listings.filter(listing => {
+    const result = listings.filter((listing: Property) => {
       const matchesSearch = listing.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         listing.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         listing.location.toLowerCase().includes(searchQuery.toLowerCase());
@@ -29,7 +45,7 @@ export default function ListingsGrid() {
       return matchesSearch && matchesCategory;
     });
 
-    return result.sort((a, b) => {
+    return result.sort((a: Property, b: Property) => {
       switch (sortBy) {
         case "price":
           return parseFloat(a.price.replace(/[^\d.]/g, '')) - parseFloat(b.price.replace(/[^\d.]/g, ''));
@@ -90,7 +106,7 @@ export default function ListingsGrid() {
             <div className="flex flex-wrap gap-4 w-full md:w-auto justify-start md:justify-end items-center">
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
+                onChange={(e) => setSortBy(e.target.value as "price" | "capRate")}
                 className="px-4 py-2 rounded-xl text-sm font-medium bg-white border border-gray-200
                         hover:border-red-200 focus:border-red-900 focus:ring-2 focus:ring-red-200
                         transition-all duration-300"
