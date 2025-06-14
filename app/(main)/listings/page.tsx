@@ -1,4 +1,4 @@
-import ListingsGridWrapper from '@/components/client/ListingsGridWrapper';
+import ListingsGridWrapper from '@/components/listings/ListingsGridWrapper';
 
 export default function ListingsPage() {
   return (

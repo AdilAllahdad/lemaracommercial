@@ -11,7 +11,7 @@ export { Map } from './Map';
 
 // Section Components
 export { default as AnalysisSection } from './AnalysisSection';
-export { default as AffordabilityCalculator } from './AffordabilityCalculator';
+export { default as AffordabilityCalculator } from './listingDetails/AffordabilityCalculator';
 // export { default as ImageGallery } from './ImageGallery';
 // export { default as ListingSection } from './ListingSection';
 // export { default as ExpandableSection } from './ExpandableSection';

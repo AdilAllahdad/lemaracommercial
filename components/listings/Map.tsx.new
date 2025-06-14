@@ -1,0 +1,62 @@
+'use client';
+
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { useState, useCallback } from 'react';
+
+export interface MapProps {
+  location: string;
+  listing: {
+    title: string;
+    price: string;
+  };
+  center?: { lat: number; lng: number }; // Updated type for Google Maps
+}
+
+const mapContainerStyle = {
+  height: '400px',
+  width: '100%'
+};
+
+const mapOptions = {
+  styles: [
+    {
+      featureType: 'poi',
+      elementType: 'labels',
+      stylers: [{ visibility: 'off' }]
+    }
+  ]
+};
+
+export const Map = ({ 
+  location, 
+  listing, 
+  center = { lat: 36.9741, lng: -122.0308 } 
+}: MapProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="rounded-lg overflow-hidden">
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={13}
+        options={mapOptions}
+      >
+        <Marker
+          position={center}
+          onClick={() => setIsOpen(true)}
+        >
+          {isOpen && (
+            <InfoWindow onCloseClick={() => setIsOpen(false)}>
+              <div className="text-sm">
+                <h3 className="font-bold mb-1">{listing.title}</h3>
+                <p className="text-gray-600">{location}</p>
+                <p className="text-red-900 font-semibold mt-1">{listing.price}</p>
+              </div>
+            </InfoWindow>
+          )}
+        </Marker>
+      </GoogleMap>
+    </div>
+  );
+};
