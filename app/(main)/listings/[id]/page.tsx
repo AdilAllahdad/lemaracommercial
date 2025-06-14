@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, use, Suspense } from 'react';
+import { use, Suspense } from 'react';
 import { listings } from '@/app/data/listings';
 import { agent } from '@/app/data/agent';
 import { Gallery } from '@/components/listings/listingDetails';

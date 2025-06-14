@@ -135,9 +135,9 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Let's Work Together</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Work Together</h2>
           <p className="text-xl text-gray-300 mb-8">
-            If you're interested in an investment property, acquiring an industrial property, or any other commercial purchase, let's discuss how we can help achieve your goals
+            If you&apos;re interested in an investment property, acquiring an industrial property, or any other commercial purchase, let&apos;s discuss how we can help achieve your goals
           </p>
           <Link
             href="/contact"

@@ -37,17 +37,14 @@ export const Map = ({ location = '', listing }: MapProps) => {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [map, setMap] = useState<google.maps.Map | null>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
-    setMap(map);
   }, []);
 
   const onUnmount = useCallback(() => {
     mapRef.current = null;
-    setMap(null);
   }, []);
 
   useEffect(() => {

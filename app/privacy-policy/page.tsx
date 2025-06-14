@@ -157,7 +157,7 @@ export default function PrivacyPolicyPage() {
                     <div className="space-y-4 mb-8">
                       <h4 className="text-lg font-medium text-gray-900">Usage Data</h4>
                       <p className="text-gray-600">Usage Data is collected automatically when using the Service.</p>
-                      <p className="text-gray-600">Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+                      <p className="text-gray-600">Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
                       <p className="text-gray-600">When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
                       <p className="text-gray-600">We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
                     </div>
@@ -167,7 +167,7 @@ export default function PrivacyPolicyPage() {
                       <h4 className="text-lg font-medium text-gray-900">Tracking Technologies and Cookies</h4>
                       <p className="text-gray-600">We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service.</p>
                       <p className="text-gray-600">You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service.</p>
-                      <p className="text-gray-600">Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close your web browser.</p>
+                      <p className="text-gray-600">Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close your web browser.</p>
                       
                       <div className="space-y-6 mt-6">
                         <div className="bg-gray-50 p-4 rounded-lg">
