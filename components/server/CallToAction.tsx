@@ -22,14 +22,14 @@ const CallToAction = () => {
         <div className="space-y-8 animate-fade-in">
           <div className="relative inline-block">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-              Look like a pro when you're just starting out
+              Look like a pro when you&apos;re just starting out
             </h2>
               <div className="h-1 w-24 bg-red-600 mx-auto mt-6"></div>
           </div>
           
           <p className="text-xl text-white/90 leading-relaxed">
             Let our expertise guide you through every step of your commercial real estate journey.
-            From finding the perfect location to securing funding, we've got you covered.
+            From finding the perfect location to securing funding, we&apos;ve got you covered.
           </p>
 
           <div className="pt-4">

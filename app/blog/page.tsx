@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearch, FaShare, FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaSearch, FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa';
 
 interface BlogPost {
   id: string;
@@ -18,7 +18,7 @@ interface BlogPost {
   readingTime?: number;
 }
 
-const ITEMS_PER_PAGE = 5;
+
 
 // Mock data - in a real app, this would come from an API or database
 const allBlogPosts: BlogPost[] = [
@@ -72,11 +72,7 @@ const allBlogPosts: BlogPost[] = [
   }
 ];
 
-const calculateReadingTime = (text: string): number => {
-  const wordsPerMinute = 200;
-  const words = text.split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-};
+
 
 const BlogCard = ({ post }: { post: BlogPost }) => {
   const [isHovered, setIsHovered] = useState(false);
