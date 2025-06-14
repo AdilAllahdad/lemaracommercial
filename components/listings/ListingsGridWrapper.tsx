@@ -2,8 +2,8 @@
 
 import dynamic from 'next/dynamic';
 
-const ListingsGrid = dynamic(() => import('./ListingsGrid'), {
-  ssr: false
+const ListingsGrid = dynamic(() => import('./ListingsGrid'), { 
+  ssr: false 
 });
 
 export default function ListingsGridWrapper() {
