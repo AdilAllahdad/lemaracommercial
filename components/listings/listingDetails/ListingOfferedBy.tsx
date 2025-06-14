@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 interface Agent {
   name: string;
@@ -18,8 +19,13 @@ export function ListingOfferedBy({ agent }: ListingOfferedByProps) {
     <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
       <h2 className="text-2xl font-semibold mb-4">Listing Offered By</h2>
       <div className="flex items-center space-x-4">
-        <div className="w-16 h-16 rounded-full overflow-hidden">
-          <img src={agent.image} alt={agent.name} className="w-full h-full object-cover" />
+        <div className="w-16 h-16 rounded-full overflow-hidden relative">
+          <Image 
+            src={agent.image} 
+            alt={agent.name} 
+            fill
+            className="object-cover"
+          />
         </div>
         <div>
           <h3 className="text-xl font-medium">{agent.name}</h3>

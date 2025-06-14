@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { BlogCard } from '../client/BlogCard';
 
 // Blog post type definition
