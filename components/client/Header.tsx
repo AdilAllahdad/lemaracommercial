@@ -8,9 +8,22 @@ import { MobileMenu } from './MobileMenu';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isListingsDropdownOpen, setIsListingsDropdownOpen] = useState(false);
+  const [isLoanDropdownOpen, setIsLoanDropdownOpen] = useState(false);
   
   const menuItems = [
-    { label: 'Commercial Loan', href: '/commercial-loan' },
+    { 
+      label: 'Commercial Loan',
+      href: '/commercial-loan',      dropdownItems: [
+        { label: 'Commercial Loans', href: '/commercial-loans' },
+        { label: 'Construction Financing', href: '/construction-financing' },
+        { label: 'USDA Loan', href: '/usda-loan' },
+        { label: 'SBA Loans', href: '/sba-loans' },
+        { label: 'Solar Financing', href: '/solar-financing' },
+        { label: 'Commercial Loan Application', href: '/loan-application' },
+        { label: 'Hard Money Loan', href: '/hard-money-loan' },
+        { label: 'Loan Calculator', href: '/loan-calculator' },
+      ]
+    },
     { 
       label: 'Commercial Listings',
       href: '/listings',
@@ -83,54 +96,62 @@ const Header = () => {
           <div className="hidden lg:flex flex-1 justify-center ml-16">
             <div className="flex items-center space-x-8">
               {menuItems.map((item) => (
-                <div key={item.label} className="relative">
+                <div key={item.label} className="relative group">
                   {item.dropdownItems ? (
                     <div
-                      onMouseEnter={() => setIsListingsDropdownOpen(true)}
-                      onMouseLeave={() => setIsListingsDropdownOpen(false)}
+                      onMouseEnter={() => {
+                        if (item.label === 'Commercial Listings') setIsListingsDropdownOpen(true);
+                        if (item.label === 'Commercial Loan') setIsLoanDropdownOpen(true);
+                      }}
+                      onMouseLeave={() => {
+                        if (item.label === 'Commercial Listings') setIsListingsDropdownOpen(false);
+                        if (item.label === 'Commercial Loan') setIsLoanDropdownOpen(false);
+                      }}
                       className="relative"
                     >
                       <button
                         className="text-blue-900 hover:text-blue-700 px-3 py-2 text-sm font-medium inline-flex items-center"
-                        aria-expanded={isListingsDropdownOpen}
+                        aria-expanded={item.label === 'Commercial Listings' ? isListingsDropdownOpen : isLoanDropdownOpen}
                       >
                         {item.label}
                         <svg
                           className={`ml-2 h-4 w-4 transform transition-transform duration-200 ${
-                            isListingsDropdownOpen ? 'rotate-180' : ''
+                            (item.label === 'Commercial Listings' && isListingsDropdownOpen) ||
+                            (item.label === 'Commercial Loan' && isLoanDropdownOpen)
+                              ? 'rotate-180'
+                              : ''
                           }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
+                            fillRule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clipRule="evenodd"
                           />
                         </svg>
                       </button>
-                      {isListingsDropdownOpen && (
-                        <div 
-                          className="absolute z-50 left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                          style={{ top: 'calc(100% - 5px)' }}
-                        >
-                          {/* Add a hidden buffer area to prevent menu from closing */}
-                          <div className="h-4 -mt-4" />
-                          <div className="py-1">
-                            {item.dropdownItems.map((dropdownItem) => (
-                              <Link
-                                key={dropdownItem.label}
-                                href={dropdownItem.href}
-                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                              >
-                                {dropdownItem.label}
-                              </Link>
-                            ))}
-                          </div>
+                      {/* Dropdown Panel */}
+                      <div
+                        className={`${
+                          (item.label === 'Commercial Listings' && isListingsDropdownOpen) ||
+                          (item.label === 'Commercial Loan' && isLoanDropdownOpen)
+                            ? 'opacity-100 visible'
+                            : 'opacity-0 invisible'
+                        } absolute left-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-200 ease-in-out z-50`}
+                      >
+                        <div className="py-2 grid grid-cols-1 gap-1">
+                          {item.dropdownItems.map((subItem) => (
+                            <Link
+                              key={subItem.label}
+                              href={subItem.href}
+                              className="px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 flex items-center transition-colors duration-150"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
                         </div>
-                      )}
+                      </div>
                     </div>
                   ) : (
                     <Link
