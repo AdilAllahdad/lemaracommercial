@@ -33,17 +33,17 @@ const Footer = () => {
               <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
               <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">Terms and Conditions</Link></li>
             </ul>
           </div>
 
           {/* Services Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2">              
               <li><Link href="/agent-registration" className="text-gray-400 hover:text-white transition-colors">Agent Registration</Link></li>
-              <li><Link href="/login" className="text-gray-400 hover:text-white transition-colors">Login</Link></li>
-
-              <li><Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms and Conditions</Link></li>
+              <li><Link href="/agent-login" className="text-gray-400 hover:text-white transition-colors">Agent Login</Link></li>
+              <li><Link href="/admin-login" className="text-gray-400 hover:text-white transition-colors">Admin</Link></li>
             </ul>
           </div>
 

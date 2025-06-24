@@ -4,11 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { MobileMenu } from './MobileMenu';
+import AuthModal from './AuthModal';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isListingsDropdownOpen, setIsListingsDropdownOpen] = useState(false);
   const [isLoanDropdownOpen, setIsLoanDropdownOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   
   const menuItems = [
     { 
@@ -181,17 +183,22 @@ const Header = () => {
           
             <button
               type="button"
-              className="text-gray-600 hover:text-gray-900 p-2"
+              className="text-gray-600 hover:text-gray-900 p-2 cursor-pointer"
               aria-label="Account"
+              onClick={() => setIsAuthModalOpen(true)}
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </button>
 
-   <Link
+            <Link
               href="/login"
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-900 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsAuthModalOpen(true);
+              }}
             >
               Login
             </Link>
@@ -204,6 +211,12 @@ const Header = () => {
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
           menuItems={menuItems}
+        />
+
+        {/* Auth Modal */}
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
         />
       </div>
     </nav>
